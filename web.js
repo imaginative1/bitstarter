@@ -15,7 +15,7 @@ var app = express();
 //var app = express.createServer(express,logger());
 
 
-pp.use(express.logger());
+app.use(express.logger());
 
 
 app.get('/', function(request, response) {
