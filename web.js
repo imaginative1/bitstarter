@@ -63,7 +63,7 @@ var express = require('express');
 
  app.get('/', function(request, response) {
     var fs = require('fs');
-    var mybuf = fs.readFileSync("index.hml");
+     var mybuf = fs.readFileSync("index.html");
 
     var buffer = new Buffer();
     response.send(buffer.toString('utc-8', mybuf.toString()));
