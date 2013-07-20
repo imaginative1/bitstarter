@@ -1,11 +1,26 @@
+/** code for hemeowrk #3
+
+* by : Rene M
+*/
+
+
+
 var express = require('express');
-var app = express();
-app.use(express.logger());
+//var app = express();
+
+var fs = require('fs');
+
+var data = fs.readFileSync("index.html","utf-8");
+
+var app = express.createServer(express,logger());
+
+
+//app.use(express.logger());
 
 
 app.get('/', function(request, response) {
 
-   response.send('Hello World!');
+   response.send(data);
 
 });
 
