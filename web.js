@@ -55,25 +55,17 @@
 
 
 
+var express = require('express');
+var fs = require('fs');
+var buff = new Buffer(fs.readFileSync("index.html"));
+var app = express.createServer(express.logger());
+var content = buff.toString()
 
+app.get('/', function(request, response) {  
+response.send(content);});
 
-var fs = require("fs");
-
-var express = require("express");
-
-var buffer = new Buffer(128);
-
-// buffer = fs.readFileSync("./index.html");
-
-   var app = express.createServer(express.logger());
-// var app = express();
-
-// console.log("Buffer is: " + buffer.toString('utf8'));
-app.get('/', function(request, response) {
-  response.send(fs.readFileSync("./index.html").toString()) ;
-});
 
 var port = process.env.PORT || 5000;
-app.listen(port, function() {
+app.listen(port, function() {  
   console.log("Listening on " + port);
 });
